@@ -1,0 +1,9 @@
+:root{
+--font-display:"Zen Maru Gothic","Hiragino Maru Gothic ProN",sans-serif;
+--font-body:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;
+--font-latin:"Quicksand","Zen Maru Gothic",sans-serif;
+--fs-hero:44px;--fs-hero-sp:34px;--fs-h1:30px;--fs-h2:22px;--fs-h3:17px;--fs-body:14px;--fs-small:12px;--fs-caption:11px;--fs-eyebrow:11px;
+--lh-tight:1.45;/* @kind font */--lh-body:1.95;/* @kind font */
+--tracking-hero:0.14em;--tracking-heading:0.08em;--tracking-body:0.06em;--tracking-eyebrow:0.28em;
+--fw-regular:400;/* @kind font */--fw-medium:500;/* @kind font */--fw-bold:700;/* @kind font */
+}

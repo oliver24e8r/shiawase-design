@@ -1,0 +1,27 @@
+<!-- @dsCard group="Components" viewport="700x420" name="Core" subtitle="Button, IconButton, Tag, SectionHeading, WaveFrame" -->
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:24px;font-family:var(--font-body)}.lbl{font:10px var(--font-latin);letter-spacing:.2em;color:var(--fg-3);text-transform:uppercase}</style></head>
+<body class="shiawase-grid-bg"><div id="root"></div>
+<script type="text/babel">
+const NS = window.DesignSystem_82f53f;
+
+const { Button, IconButton, Tag, SectionHeading, WaveFrame, Icon } = NS;
+const Row = ({label, children}) => <div style={{display:'flex',flexDirection:'column',gap:8}}><div className="lbl">{label}</div><div style={{display:'flex',gap:16,alignItems:'center',flexWrap:'wrap'}}>{children}</div></div>;
+ReactDOM.createRoot(document.getElementById('root')).render(
+<div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:22}}>
+ <div style={{display:'flex',flexDirection:'column',gap:18}}>
+  <Row label="Button / primary lg"><Button size="lg">わたしに合う婚活を見つける</Button></Row>
+  <Row label="outline · text · underline"><Button variant="outline">婚活アプリを見てみる</Button><Button variant="text">記事を読む</Button></Row>
+  <Row label=""><Button variant="underline" icon="chevron-right">読みものをもっと見る</Button><Button disabled>disabled</Button></Row>
+  <Row label="IconButton · Tag · Icon"><IconButton label="next"/><IconButton icon="menu" variant="ghost" size={40}/><Tag>婚活アプリ</Tag><Tag tone="peach">心のこと</Tag><Tag tone="mint">考え方</Tag><Icon name="plus" color="var(--fg-1)"/><Icon name="chevron-down" color="var(--fg-1)"/></Row>
+ </div>
+ <div style={{display:'flex',flexDirection:'column',gap:18}}>
+  <SectionHeading eyebrow="Choose your way" title="今の気持ちから、はじめよう"/>
+  <WaveFrame amplitude={5} wavelength={80} style={{height:170}}><img src="../../assets/illustrations/hero-arch-scene.png" style={{width:'100%',height:'100%',objectFit:'cover'}}/></WaveFrame>
+ </div>
+</div>);
+</script></body></html>

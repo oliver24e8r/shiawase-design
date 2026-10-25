@@ -1,0 +1,2 @@
+.shiawase-grid-bg{background-color:var(--surface-page);background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:var(--grid-size) var(--grid-size)}
+a{color:var(--text-link)}a:hover{color:var(--accent-hover)}

@@ -1,0 +1,397 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/brand/**",
+              "components/cards/**",
+              "components/core/**",
+              "components/disclosure/**",
+              "publish/**",
+              "ui_kits/website/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Zen Maru Gothic|Zen Kaku Gothic New|Quicksand))/i]",
+        "message": "Font not provided by the design system. Available: Zen Maru Gothic, Zen Kaku Gothic New, Quicksand."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ArticleCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:image|category|date|title|excerpt|layout|onClick|key|ref|className|style|children)$/]",
+        "message": "<ArticleCard> doesn't accept that prop. Declared props: image, category, date, title, excerpt, layout, onClick."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ArticleCard'] > JSXAttribute[name.name='layout'] > Literal[value!=/^(?:vertical|horizontal)$/]",
+        "message": "<ArticleCard> layout must be one of 'vertical' | 'horizontal'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|size|icon|children|disabled|fullWidth|href|onClick|style|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: variant, size, icon, children, disabled, fullWidth, href, onClick, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|outline|text|underline)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'outline' | 'text' | 'underline'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:md|lg)$/]",
+        "message": "<Button> size must be one of 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='icon'] > Literal[value!=/^(?:arrow-right|chevron-right)$/]",
+        "message": "<Button> icon must be one of 'arrow-right' | 'chevron-right'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ChoiceCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:image|title|body|cta|layout|onClick|key|ref|className|style|children)$/]",
+        "message": "<ChoiceCard> doesn't accept that prop. Declared props: image, title, body, cta, layout, onClick."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ChoiceCard'] > JSXAttribute[name.name='layout'] > Literal[value!=/^(?:vertical|horizontal)$/]",
+        "message": "<ChoiceCard> layout must be one of 'vertical' | 'horizontal'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CompareCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:image|title|body|layout|onClick|key|ref|className|style|children)$/]",
+        "message": "<CompareCard> doesn't accept that prop. Declared props: image, title, body, layout, onClick."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CompareCard'] > JSXAttribute[name.name='layout'] > Literal[value!=/^(?:feature|row)$/]",
+        "message": "<CompareCard> layout must be one of 'feature' | 'row'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FaqItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:question|answer|defaultOpen|marker|compact|key|ref|className|style|children)$/]",
+        "message": "<FaqItem> doesn't accept that prop. Declared props: question, answer, defaultOpen, marker, compact."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FaqItem'] > JSXAttribute[name.name='marker'] > Literal[value!=/^(?:q|chevron)$/]",
+        "message": "<FaqItem> marker must be one of 'q' | 'chevron'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|size|strokeWidth|color|style|key|ref|className|style|children)$/]",
+        "message": "<Icon> doesn't accept that prop. Declared props: name, size, strokeWidth, color, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute[name.name='name'] > Literal[value!=/^(?:arrow-right|chevron-right|chevron-down|plus|minus|menu|x)$/]",
+        "message": "<Icon> name must be one of 'arrow-right' | 'chevron-right' | 'chevron-down' | 'plus' | 'minus' | 'menu' | 'x'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconButton'] > JSXAttribute > JSXIdentifier[name!=/^(?:icon|variant|size|label|onClick|style|key|ref|className|style|children)$/]",
+        "message": "<IconButton> doesn't accept that prop. Declared props: icon, variant, size, label, onClick, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconButton'] > JSXAttribute[name.name='icon'] > Literal[value!=/^(?:arrow-right|chevron-right|menu|x|plus)$/]",
+        "message": "<IconButton> icon must be one of 'arrow-right' | 'chevron-right' | 'menu' | 'x' | 'plus'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconButton'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:coral|ghost)$/]",
+        "message": "<IconButton> variant must be one of 'coral' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Logo'] > JSXAttribute > JSXIdentifier[name!=/^(?:layout|size|src|showMark|style|key|ref|className|style|children)$/]",
+        "message": "<Logo> doesn't accept that prop. Declared props: layout, size, src, showMark, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Logo'] > JSXAttribute[name.name='layout'] > Literal[value!=/^(?:stacked|inline)$/]",
+        "message": "<Logo> layout must be one of 'stacked' | 'inline'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionHeading'] > JSXAttribute > JSXIdentifier[name!=/^(?:eyebrow|title|lead|align|rule|size|style|key|ref|className|style|children)$/]",
+        "message": "<SectionHeading> doesn't accept that prop. Declared props: eyebrow, title, lead, align, rule, size, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionHeading'] > JSXAttribute[name.name='align'] > Literal[value!=/^(?:center|left)$/]",
+        "message": "<SectionHeading> align must be one of 'center' | 'left'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionHeading'] > JSXAttribute[name.name='rule'] > Literal[value!=/^(?:dash|lines|none)$/]",
+        "message": "<SectionHeading> rule must be one of 'dash' | 'lines' | 'none'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionHeading'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<SectionHeading> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tag'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|tone|style|key|ref|className|style|children)$/]",
+        "message": "<Tag> doesn't accept that prop. Declared props: children, tone, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tag'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:plain|peach|mint)$/]",
+        "message": "<Tag> tone must be one of 'plain' | 'peach' | 'mint'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='WaveFrame'] > JSXAttribute > JSXIdentifier[name!=/^(?:background|outline|outlineColor|amplitude|wavelength|radius|shadow|children|style|innerStyle|key|ref|className|style|children)$/]",
+        "message": "<WaveFrame> doesn't accept that prop. Declared props: background, outline, outlineColor, amplitude, wavelength, radius, shadow, children, style, innerStyle."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "ArticleCard": {
+        "replaces": []
+      },
+      "Button": {
+        "replaces": []
+      },
+      "ChoiceCard": {
+        "replaces": []
+      },
+      "CompareCard": {
+        "replaces": []
+      },
+      "FaqItem": {
+        "replaces": []
+      },
+      "Icon": {
+        "replaces": []
+      },
+      "IconButton": {
+        "replaces": []
+      },
+      "Logo": {
+        "replaces": []
+      },
+      "SectionHeading": {
+        "replaces": []
+      },
+      "Tag": {
+        "replaces": []
+      },
+      "WaveFrame": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--accent",
+      "--accent-hover",
+      "--accent-soft",
+      "--border-card",
+      "--border-mint",
+      "--brand-mint",
+      "--content-max",
+      "--coral-100",
+      "--coral-300",
+      "--coral-400",
+      "--coral-500",
+      "--coral-600",
+      "--cream-0",
+      "--cream-100",
+      "--cream-50",
+      "--dur-base",
+      "--dur-fast",
+      "--ease-soft",
+      "--fg-1",
+      "--fg-2",
+      "--fg-3",
+      "--fg-on-accent",
+      "--font-body",
+      "--font-display",
+      "--font-latin",
+      "--fs-body",
+      "--fs-caption",
+      "--fs-eyebrow",
+      "--fs-h1",
+      "--fs-h2",
+      "--fs-h3",
+      "--fs-hero",
+      "--fs-hero-sp",
+      "--fs-small",
+      "--fw-bold",
+      "--fw-medium",
+      "--fw-regular",
+      "--grid-line",
+      "--grid-size",
+      "--gutter-pc",
+      "--gutter-sp",
+      "--ink-300",
+      "--ink-400",
+      "--ink-500",
+      "--lh-body",
+      "--lh-tight",
+      "--lilac-100",
+      "--lilac-50",
+      "--line-200",
+      "--line-mint",
+      "--mint-100",
+      "--mint-200",
+      "--mint-300",
+      "--mint-400",
+      "--mint-50",
+      "--mint-500",
+      "--peach-100",
+      "--peach-200",
+      "--peach-50",
+      "--pink-300",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--radius-xl",
+      "--shadow-card",
+      "--shadow-cta",
+      "--shadow-frame",
+      "--shadow-soft",
+      "--space-1",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-7",
+      "--space-8",
+      "--space-9",
+      "--surface-band-lilac",
+      "--surface-band-peach",
+      "--surface-card",
+      "--surface-footer",
+      "--surface-hero",
+      "--surface-page",
+      "--teal-700",
+      "--teal-800",
+      "--teal-900",
+      "--text-body",
+      "--text-heading",
+      "--text-link",
+      "--text-muted",
+      "--tracking-body",
+      "--tracking-eyebrow",
+      "--tracking-heading",
+      "--tracking-hero"
+    ],
+    "tokenKinds": {
+      "--mint-50": "color",
+      "--mint-100": "color",
+      "--mint-200": "color",
+      "--mint-300": "color",
+      "--mint-400": "color",
+      "--mint-500": "color",
+      "--teal-700": "color",
+      "--teal-800": "color",
+      "--teal-900": "color",
+      "--coral-100": "color",
+      "--coral-300": "color",
+      "--coral-400": "color",
+      "--coral-500": "color",
+      "--coral-600": "color",
+      "--peach-50": "color",
+      "--peach-100": "color",
+      "--peach-200": "color",
+      "--pink-300": "color",
+      "--lilac-50": "color",
+      "--lilac-100": "color",
+      "--cream-0": "color",
+      "--cream-50": "color",
+      "--cream-100": "color",
+      "--grid-line": "color",
+      "--ink-500": "color",
+      "--ink-400": "color",
+      "--ink-300": "color",
+      "--line-200": "color",
+      "--line-mint": "color",
+      "--fg-1": "color",
+      "--fg-2": "color",
+      "--fg-3": "color",
+      "--fg-on-accent": "color",
+      "--text-heading": "font",
+      "--text-body": "font",
+      "--text-muted": "font",
+      "--text-link": "font",
+      "--accent": "color",
+      "--accent-hover": "color",
+      "--accent-soft": "color",
+      "--brand-mint": "color",
+      "--surface-page": "color",
+      "--surface-card": "color",
+      "--surface-hero": "color",
+      "--surface-band-lilac": "color",
+      "--surface-band-peach": "color",
+      "--surface-footer": "color",
+      "--border-card": "color",
+      "--border-mint": "color",
+      "--font-display": "font",
+      "--font-body": "font",
+      "--font-latin": "font",
+      "--fs-hero": "spacing",
+      "--fs-hero-sp": "spacing",
+      "--fs-h1": "spacing",
+      "--fs-h2": "spacing",
+      "--fs-h3": "spacing",
+      "--fs-body": "spacing",
+      "--fs-small": "spacing",
+      "--fs-caption": "spacing",
+      "--fs-eyebrow": "spacing",
+      "--lh-tight": "font",
+      "--lh-body": "font",
+      "--tracking-hero": "font",
+      "--tracking-heading": "font",
+      "--tracking-body": "font",
+      "--tracking-eyebrow": "font",
+      "--fw-regular": "font",
+      "--fw-medium": "font",
+      "--fw-bold": "font",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-7": "spacing",
+      "--space-8": "spacing",
+      "--space-9": "spacing",
+      "--content-max": "spacing",
+      "--gutter-pc": "spacing",
+      "--gutter-sp": "spacing",
+      "--radius-sm": "radius",
+      "--radius-md": "radius",
+      "--radius-lg": "radius",
+      "--radius-xl": "radius",
+      "--radius-pill": "radius",
+      "--shadow-card": "shadow",
+      "--shadow-soft": "shadow",
+      "--shadow-cta": "shadow",
+      "--shadow-frame": "shadow",
+      "--ease-soft": "other",
+      "--dur-fast": "other",
+      "--dur-base": "other",
+      "--grid-size": "spacing"
+    },
+    "fontFamilies": [
+      "Quicksand",
+      "Zen Kaku Gothic New",
+      "Zen Maru Gothic"
+    ]
+  }
+}
